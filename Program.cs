@@ -12,17 +12,24 @@ namespace Delegates_1
         delegate double MathOps(int m, int n);
         static void Main(string[] args)
         {
+            IOAverage();
+            IOAverage();
+            IOAverage();
+
+            Console.ReadKey();
+        }
+
+        static void IOAverage()
+        {
             MathOps mathOps = Average;
             Console.Write("M = ");
             int m = int.Parse(Console.ReadLine());
             Console.Write("N = ");
             int n = int.Parse(Console.ReadLine());
-            Console.WriteLine(mathOps.Invoke(m, n));
-
-            Console.ReadKey();
+            Console.WriteLine($"Среднее арифметическое чисел от {m} до {n}: {mathOps.Invoke(m, n)}\n");
         }
 
-        static double Average(int m, int n)
+        public static double Average(int m, int n)
         {
             return Enumerable.Range(m, n - m + 1).Average();
         }
